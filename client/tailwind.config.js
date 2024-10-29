@@ -5,6 +5,14 @@ module.exports = {
 
   theme: {
     extend: {
+      backgroundImage: {
+        'mobile-header': "url('/suggestions/mobile/background-header.png')",
+
+        'tablet-header': "url('/suggestions/tablet/background-header.png')",
+
+        'desktop-header': "url('/suggestions/desktop/background-header.png')",
+      },
+
       colors: {
         purple: {
           DEFAULT: '#AD1FEA',
@@ -24,7 +32,7 @@ module.exports = {
         darkGray: '#647196',
         coral: '#F49F85',
         sky: '#62BCFA',
-
+        'soft-periwinkle': '#8397F8 ',
         red: {
           DEFAULT: '#D73737',
         },
@@ -35,13 +43,13 @@ module.exports = {
       },
 
       fontSize: {
-        h1: ['24px', { lineHeight: '35px', letterSpacing: '0.3px' }],
-        h2: ['20px', { lineHeight: '29px', letterSpacing: '0.25px' }],
-        h3: ['18px', { lineHeight: '26px', letterSpacing: '0.25px' }],
-        h4: ['14px', { lineHeight: '20px', letterSpacing: '0.2px' }],
-        body1: ['16px', { lineHeight: '23px' }],
-        body2: ['15px', { lineHeight: '22px' }],
-        body3: ['14px', { lineHeight: '20px' }],
+        'heading-1': ['24px', { lineHeight: '35px', letterSpacing: '0.3px' }],
+        'heading-2': ['20px', { lineHeight: '29px', letterSpacing: '0.25px' }],
+        'heading-3': ['18px', { lineHeight: '26px', letterSpacing: '0.25px' }],
+        'heading-4': ['14px', { lineHeight: '20px', letterSpacing: '0.2px' }],
+        'body-1': ['16px', { lineHeight: '23px' }],
+        'body-2': ['15px', { lineHeight: '22px' }],
+        'body-3': ['14px', { lineHeight: '20px' }],
       },
 
       spacing: {
