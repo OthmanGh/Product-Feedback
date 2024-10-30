@@ -5,6 +5,14 @@ import Overlay from '../ui/Overlay';
 import MobileSidebar from '../ui/MobileSidebar';
 import FeedbackNavItems from '../ui/FeedbackNavItems';
 import RoadmapCard from '../ui/RoadmapCard';
+import Button from '../components/Button';
+import { FaCheck } from 'react-icons/fa';
+import FilterBar from '../ui/FilterBar';
+import CustomDropdown from '../components/CustomDropdown';
+
+//* icons
+import { MdKeyboardArrowDown } from 'react-icons/md';
+import { MdKeyboardArrowUp } from 'react-icons/md';
 
 export {
   MobileHeader,
@@ -14,6 +22,12 @@ export {
   MobileSidebar,
   FeedbackNavItems,
   RoadmapCard,
+  CustomDropdown,
+  Button,
+  MdKeyboardArrowUp,
+  MdKeyboardArrowDown,
+  FaCheck,
+  FilterBar,
 };
 
 export const menuNavItems = [
@@ -67,5 +81,27 @@ export const roadmapItems = [
     numItems: 1,
     value: 'live',
     color: 'bg-sky',
+  },
+];
+
+export const selectOptions = [
+  {
+    label: 'Most Upvotes',
+    value: 'most-upvotes',
+  },
+
+  {
+    label: 'Least Upvotes',
+    value: 'least-upvotes',
+  },
+
+  {
+    label: 'Most Comments',
+    value: 'most-comments',
+  },
+
+  {
+    label: 'Least Comments',
+    value: 'least-comments',
   },
 ];
