@@ -1,6 +1,5 @@
 import { useState } from 'react';
-import { MobileHeader, Overlay } from '../constants';
-import MobileSidebar from '../ui/MobileSidebar';
+import { MobileHeader, Overlay, MobileSidebar, FilterBar } from '../constants';
 
 const Home = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -22,6 +21,8 @@ const Home = () => {
           <Overlay />
         </>
       )}
+
+      <FilterBar />
     </div>
   );
 };
