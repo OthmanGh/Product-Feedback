@@ -5,7 +5,7 @@ const FeedbackNavItems = () => {
   const [activeFeedbackNavItems, setActiveFeedbackNavItems] = useState('all');
 
   return (
-    <ul className='flex_wrap p-5 bg-white rounded-[10px] shadow-sm w-full '>
+    <ul className='flex_wrap p-5 bg-white rounded-[10px] shadow-sm w-full'>
       {menuNavItems.map((item, i) => (
         <li
           value={item.value}
