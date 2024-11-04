@@ -7,9 +7,17 @@ body {
   background-color: #f7f8fd;
 }
 
+::-webkit-scrollbar {
+  display: none;
+}
+
 @layer utilities {
   .flex_between {
     @apply flex justify-between items-center;
+  }
+
+  .flex_row {
+    @apply flex flex-row items-center;
   }
 
   .fill_bg {
@@ -21,7 +29,7 @@ body {
   }
 
   .feedback_nav_item {
-    @apply px-4 py-3 font-semibold shadow-sm rounded-[12px] cursor-pointer text-center text-body-3 transition-all;
+    @apply lg:py-[8px] lg:px-[18px] sm:py-2 sm:px-[13px] px-5 py-[10px] w-fit font-semibold rounded-[12px] text-center text-body-2;
   }
 
   .feedback_nav_item {
@@ -38,5 +46,9 @@ body {
 
   .flex_center {
     @apply flex items-center gap-3;
+  }
+
+  .flex_col {
+    @apply flex flex-col;
   }
 }
