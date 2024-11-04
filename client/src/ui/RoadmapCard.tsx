@@ -3,11 +3,11 @@ import { roadmapItems } from '../constants';
 
 const RoadmapCard = () => {
   return (
-    <div className='w-full p-10 rounded-[10px] shadow-sm bg-white'>
+    <div className='w-full p-5 rounded-[10px] shadow-sm bg-white'>
       <div className='flex_between bg-white mb-4'>
         <h2 className='text-heading-3 text-blue-dark font-bold'>Roadmap</h2>
         <Link
-          to='/view'
+          to='/roadmap'
           className='text-body-3 text-blue font-semibold underline hover:text-soft-periwinkle'
         >
           View
