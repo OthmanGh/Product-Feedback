@@ -25,6 +25,11 @@ module.exports = {
           dark: '#3A4374',
         },
 
+        'slate-lavender': '#8C92B3',
+        'misty-blue': '#CDD2EE',
+        'moonlit-sky': '#CFD7FF',
+        peach: '#F49F85',
+        'blue-wave': '#62BCFA',
         navy: '#4661E6',
         darkBlue: '#1D1D2E',
         white: '#FFFFFF',
@@ -49,7 +54,7 @@ module.exports = {
         'heading-4': ['14px', { lineHeight: '20px', letterSpacing: '0.2px' }],
         'body-1': ['16px', { lineHeight: '23px' }],
         'body-2': ['15px', { lineHeight: '22px' }],
-        'body-3': ['14px', { lineHeight: '20px' }],
+        'body-3': ['13px', { lineHeight: '20px' }],
       },
 
       spacing: {
