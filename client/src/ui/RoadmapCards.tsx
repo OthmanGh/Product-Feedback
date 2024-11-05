@@ -1,145 +1,85 @@
-import { feedbackRequests } from '../constants';
 import { CategoryTag, Upvotes, Comments } from '../constants';
+import { useFeedbackQuery } from '../context/FeedbackQueryContext';
+import { FeedbackRequest } from '../types';
+interface RoadmapSectionProps {
+  title: string;
+  subtitle: string;
+  feedbackList: FeedbackRequest[];
+  borderColor: string;
+  status: string;
+}
 
-const roadmapNavItemsHeaders = [
-  {
-    value: 'planned',
-    label: 'Planned',
-    description: 'Ideas prioritized for research',
-  },
+const RoadmapSection = ({
+  title,
+  subtitle,
+  feedbackList,
+  borderColor,
+  status,
+}: RoadmapSectionProps) => (
+  <div className='flex_col gap-8 w-full'>
+    <div className='flex_col gap-[4px] w-full'>
+      <h2 className='text-heading-3 text-blue-dark font-bold'>
+        {title} ({feedbackList.length || 0})
+      </h2>
+      <p className='text-darkGray text-body-1'>{subtitle}</p>
+    </div>
 
-  {
-    value: 'in-progress',
-    label: 'In Progress',
-    description: 'Currently being developed',
-  },
+    <ul className='flex_col gap-6 max-w-[450px]'>
+      {feedbackList.map((feedback) => (
+        <li
+          key={feedback.id}
+          className={`bg-white rounded-lg flex_col gap-5 py-6 px-8 border-t-[6px] sm:border-t-8 border-t-${borderColor} w-full`}
+        >
+          <div className='flex_col gap-[4px]'>
+            <div className='flex_row gap-2'>
+              <div className={`w-2 h-2 rounded-full bg-${borderColor}`}></div>
+              <p className='text-darkGray text-body-1'>{status}</p>
+            </div>
 
-  {
-    value: 'live',
-    label: 'Live',
-    description: 'Features currently being developed',
-  },
-];
+            <h2 className='text-blue-dark font-bold text-heading-3'>
+              {feedback.title}
+            </h2>
+            <p className='text-body-1 text-darkGray'>{feedback.description}</p>
+          </div>
+          <CategoryTag category={feedback.category} />
+
+          <div className='flex_between'>
+            <Upvotes upvotes={feedback.upvotes} className='sm:flex-row px-2!' />
+            <Comments commentCount={feedback.comments?.length || 0} />
+          </div>
+        </li>
+      ))}
+    </ul>
+  </div>
+);
 
 const RoadmapCards = () => {
-  const filteredProductFeedbackRequests = feedbackRequests.reduce(
-    (accum, feedback) => {
-      if (feedback.status === 'planned') accum['planned'].push(feedback);
-      if (feedback.status === 'live') accum['live'].push(feedback);
-      if (feedback.status === 'in-progress')
-        accum['in-progress'].push(feedback);
-
-      return accum;
-    },
-    {
-      planned: [],
-      'in-progress': [],
-      live: [],
-    }
-  );
+  const { roadmapFeedbackRequests } = useFeedbackQuery();
 
   return (
-    <section>
-      <ul className='hidden sm:flex_row w-full'>
-        {roadmapNavItemsHeaders.map((item) => (
-          <li key={item.value} className='flex_col gap-[4px] w-full'>
-            <div className='flex_col gap-[4px] w-full'>
-              <h2 className='text-heading-3 text-blue-dark font-bold'>
-                {item.label} (X)
-              </h2>
-              <p className='text-darkGray text-body-3'>{item.description}</p>
-            </div>
-          </li>
-        ))}
-      </ul>
-
-      <div className='flex gap-[4px]'>
-        <ul>
-          {filteredProductFeedbackRequests['planned'].map((feedback) => (
-            <li
-              key={feedback.id}
-              className={`bg-white rounded-lg flex_col gap-5 p-4 border-t-[6px] sm:border-t-8`}
-            >
-              <div className='flex_row gap-2'>
-                <div className={` w-2 h-2 rounded-full`}></div>
-                <p className='text-darkGray text-body-3'></p>
-              </div>
-
-              <div className='flex_col gap-[9px]'>
-                <h2 className='text-blue-dark font-bold text-heading-4'>
-                  {feedback.title}
-                </h2>
-                <p className='text-body-3 text-darkGray'>
-                  {feedback.description}
-                </p>
-              </div>
-              <CategoryTag category={feedback.category} />
-
-              <div className='flex_between'>
-                <Upvotes upvotes={feedback.upvotes} />
-                <Comments commentCount={feedback?.comments?.length || 0} />
-              </div>
-            </li>
-          ))}
-        </ul>
-
-        <ul>
-          {filteredProductFeedbackRequests['in-progress'].map((feedback) => (
-            <li
-              key={feedback.id}
-              className={`bg-white rounded-lg flex_col gap-5 p-4 border-t-[6px] sm:border-t-8`}
-            >
-              <div className='flex_row gap-2'>
-                <div className={` w-2 h-2 rounded-full`}></div>
-                <p className='text-darkGray text-body-3'></p>
-              </div>
-
-              <div className='flex_col gap-[9px]'>
-                <h2 className='text-blue-dark font-bold text-heading-4'>
-                  {feedback.title}
-                </h2>
-                <p className='text-body-3 text-darkGray'>
-                  {feedback.description}
-                </p>
-              </div>
-              <CategoryTag category={feedback.category} />
-
-              <div className='flex_between'>
-                <Upvotes upvotes={feedback.upvotes} />
-                <Comments commentCount={feedback?.comments?.length || 0} />
-              </div>
-            </li>
-          ))}
-        </ul>
-
-        <ul>
-          {filteredProductFeedbackRequests['live'].map((feedback) => (
-            <li
-              key={feedback.id}
-              className={`bg-white rounded-lg flex_col gap-5 p-4 border-t-[6px] sm:border-t-8 w-full`}
-            >
-              <div className='flex_row gap-2'>
-                <div className={` w-2 h-2 rounded-full`}></div>
-                <p className='text-darkGray text-body-3'></p>
-              </div>
-
-              <div className='flex_col gap-[9px]'>
-                <h2 className='text-blue-dark font-bold text-heading-4'>
-                  {feedback.title}
-                </h2>
-                <p className='text-body-3 text-darkGray'>
-                  {feedback.description}
-                </p>
-              </div>
-              <CategoryTag category={feedback.category} />
-
-              <div className='flex_between'>
-                <Upvotes upvotes={feedback.upvotes} />
-                <Comments commentCount={feedback?.comments?.length || 0} />
-              </div>
-            </li>
-          ))}
-        </ul>
+    <section className='sm:block hidden'>
+      <div className='grid grid-cols-3 gap-4'>
+        <RoadmapSection
+          title='Planned'
+          subtitle='Ideas prioritized for research'
+          feedbackList={roadmapFeedbackRequests.planned}
+          borderColor='peach'
+          status='Planned'
+        />
+        <RoadmapSection
+          title='In-Progress'
+          subtitle='Currently being developed'
+          feedbackList={roadmapFeedbackRequests['in-progress']}
+          borderColor='purple'
+          status='In-Progress'
+        />
+        <RoadmapSection
+          title='Live'
+          subtitle='Released features'
+          feedbackList={roadmapFeedbackRequests.live}
+          borderColor='sky'
+          status='Live'
+        />
       </div>
     </section>
   );
