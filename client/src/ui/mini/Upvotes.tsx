@@ -2,11 +2,12 @@ import { MdKeyboardArrowUp } from '../../constants';
 import { useFeedbackQuery } from '../../context/FeedbackQueryContext';
 
 interface UpvotesProps {
-  upvotes: number;
+  upvotes: string | number;
   id: number;
+  className?: string;
 }
 
-const Upvotes = ({ upvotes, id }: UpvotesProps) => {
+const Upvotes = ({ upvotes, id, className }: UpvotesProps) => {
   const { incrementUpvotes } = useFeedbackQuery();
 
   const handleIncrementUpvotes = (id: number) => {
@@ -15,7 +16,7 @@ const Upvotes = ({ upvotes, id }: UpvotesProps) => {
 
   return (
     <p
-      className='flex_between sm:flex-col sm:gap-2 sm:h-fit sm:self-center gap-2 bg-purple-light sm:px-4 px-3 py-[6px] rounded-lg hover:bg-moonlit-sky active:bg-blue cursor-pointer group transition-colors duration-300'
+      className={`flex_between sm:gap-2 sm:h-fit sm:self-center gap-2 bg-purple-light  px-3 py-[6px] sm:py-[8px] rounded-lg hover:bg-moonlit-sky active:bg-blue cursor-pointer group transition-colors duration-300 ${className}`}
       onClick={() => handleIncrementUpvotes(id)}
     >
       <MdKeyboardArrowUp className='text-blue text-body-2 sm:text-2xl group-active:text-white' />

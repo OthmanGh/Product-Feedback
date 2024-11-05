@@ -1,4 +1,3 @@
-// contexts/FeedbackQueryContext.tsx
 import { createContext, useContext, useState, useMemo } from 'react';
 import type { Dispatch, ReactNode, SetStateAction } from 'react';
 import { useFeedbackStorage } from './FeedbackStorageContext';
@@ -12,6 +11,11 @@ interface FeedbackQueryContextValue {
   selectedSortOption: SortOption;
   setSelectedSortOption: Dispatch<SetStateAction<SortOption>>;
   numOfSuggestedFeedbackRequests: number;
+  roadmapFeedbackRequests: {
+    planned: FeedbackRequest[];
+    'in-progress': FeedbackRequest[];
+    live: FeedbackRequest[];
+  };
 }
 
 const FeedbackQueryContext = createContext<FeedbackQueryContextValue | null>(
@@ -51,6 +55,22 @@ export const FeedbackQueryProvider = ({
     [filteredFeedbackRequests, selectedSortOption.value]
   );
 
+  const roadmapFeedbackRequests = feedbackRequests.reduce(
+    (accum, feedback) => {
+      if (feedback.status === 'planned') accum['planned'].push(feedback);
+      if (feedback.status === 'in-progress')
+        accum['in-progress'].push(feedback);
+      if (feedback.status === 'live') accum['live'].push(feedback);
+
+      return accum;
+    },
+    {
+      planned: [],
+      'in-progress': [],
+      live: [],
+    }
+  );
+
   const value = {
     activeFeedbackNavItems,
     setActiveFeedbackNavItems,
@@ -58,6 +78,7 @@ export const FeedbackQueryProvider = ({
     selectedSortOption,
     setSelectedSortOption,
     numOfSuggestedFeedbackRequests: suggestedFeedbackRequests.length,
+    roadmapFeedbackRequests,
   };
 
   return (
