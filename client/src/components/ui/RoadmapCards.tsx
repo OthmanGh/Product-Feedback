@@ -1,12 +1,13 @@
-import { CategoryTag, Upvotes, Comments } from '../constants';
-import { useFeedbackQuery } from '../context/FeedbackQueryContext';
-import { FeedbackRequest } from '../types';
+import { CategoryTag, Upvotes, Comments } from "../../constants"
+import { useFeedbackQuery } from "../../context/FeedbackQueryContext"
+import { FeedbackRequest } from "../../types"
+
 interface RoadmapSectionProps {
-  title: string;
-  subtitle: string;
-  feedbackList: FeedbackRequest[];
-  borderColor: string;
-  status: string;
+  title: string
+  subtitle: string
+  feedbackList: FeedbackRequest[]
+  borderColor: string
+  status: string
 }
 
 const RoadmapSection = ({
@@ -51,10 +52,10 @@ const RoadmapSection = ({
       ))}
     </ul>
   </div>
-);
+)
 
 const RoadmapCards = () => {
-  const { roadmapFeedbackRequests } = useFeedbackQuery();
+  const { roadmapFeedbackRequests } = useFeedbackQuery()
 
   return (
     <section className='sm:block hidden'>
@@ -69,7 +70,7 @@ const RoadmapCards = () => {
         <RoadmapSection
           title='In-Progress'
           subtitle='Currently being developed'
-          feedbackList={roadmapFeedbackRequests['in-progress']}
+          feedbackList={roadmapFeedbackRequests["in-progress"]}
           borderColor='purple'
           status='In-Progress'
         />
@@ -82,7 +83,7 @@ const RoadmapCards = () => {
         />
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default RoadmapCards;
+export default RoadmapCards

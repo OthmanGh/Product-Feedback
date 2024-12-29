@@ -1,5 +1,5 @@
-import FeedbackNavItems from './FeedbackNavItems';
-import RoadmapCard from './RoadmapCard';
+import FeedbackNavItems from "./FeedbackNavItems"
+import RoadmapCard from "./RoadmapCard"
 
 const MobileSidebar = () => {
   return (
@@ -7,7 +7,7 @@ const MobileSidebar = () => {
       <FeedbackNavItems />
       <RoadmapCard />
     </div>
-  );
-};
+  )
+}
 
-export default MobileSidebar;
+export default MobileSidebar

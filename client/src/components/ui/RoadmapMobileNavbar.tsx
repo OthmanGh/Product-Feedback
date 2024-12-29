@@ -1,19 +1,19 @@
-import { MobileRoadmapNavItems } from '../constants';
-import { NavItemType } from '../types';
-import { Dispatch, SetStateAction } from 'react';
+import { MobileRoadmapNavItems } from "../../constants"
+import { NavItemType } from "../../types"
+import { Dispatch, SetStateAction } from "react"
 
 interface categoryCountsProps {
-  planned: number;
-  'in-progress': number;
-  live: number;
-  suggestion: number;
+  planned: number
+  "in-progress": number
+  live: number
+  suggestion: number
 }
 
 type RoadmapMobileNavbarProps = {
-  activeNavItem: NavItemType;
-  setActiveNavItem: Dispatch<SetStateAction<NavItemType>>;
-  categoryCounts: categoryCountsProps;
-};
+  activeNavItem: NavItemType
+  setActiveNavItem: Dispatch<SetStateAction<NavItemType>>
+  categoryCounts: categoryCountsProps
+}
 
 const RoadmapMobileNavbar = ({
   activeNavItem,
@@ -27,14 +27,14 @@ const RoadmapMobileNavbar = ({
           key={item.value}
           style={{
             borderBottom: `${
-              activeNavItem === item.value ? `4px solid ${item.color}` : 'none'
+              activeNavItem === item.value ? `4px solid ${item.color}` : "none"
             }`,
           }}
           onClick={() => setActiveNavItem(item.value as NavItemType)}
           className={`p-5 font-bold text-blue-dark transition-all duration-300 ease-in-out text-body-3 ${
             item.value === activeNavItem
-              ? 'text-opacity-100'
-              : 'text-opacity-40 border-b-0 cursor-pointer'
+              ? "text-opacity-100"
+              : "text-opacity-40 border-b-0 cursor-pointer"
           }`}
         >
           <p>
@@ -44,7 +44,7 @@ const RoadmapMobileNavbar = ({
         </li>
       ))}
     </ul>
-  );
-};
+  )
+}
 
-export default RoadmapMobileNavbar;
+export default RoadmapMobileNavbar

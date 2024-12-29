@@ -1,4 +1,8 @@
-import { RoadmapCard, FeedbackBoardCard, FeedbackNavItems } from '../constants';
+import {
+  RoadmapCard,
+  FeedbackBoardCard,
+  FeedbackNavItems,
+} from "../../constants"
 
 const MainBoard = () => {
   return (
@@ -7,7 +11,7 @@ const MainBoard = () => {
       <FeedbackNavItems />
       <RoadmapCard />
     </div>
-  );
-};
+  )
+}
 
-export default MainBoard;
+export default MainBoard

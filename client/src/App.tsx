@@ -20,7 +20,7 @@ export default function App() {
           <Route path='roadmap' element={<Roadmap />} />
         </Route>
 
-        <Route path='/auth' element={<GuestsLayout />}>
+        <Route path='/' element={<GuestsLayout />}>
           <Route path='login' element={<Login />} />
           <Route path='signup' element={<Signup />} />
         </Route>

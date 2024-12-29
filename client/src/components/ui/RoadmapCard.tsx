@@ -1,5 +1,5 @@
-import { Link } from 'react-router-dom';
-import { roadmapItems } from '../constants';
+import { Link } from "react-router-dom"
+import { roadmapItems } from "../../constants"
 
 const RoadmapCard = () => {
   return (
@@ -26,7 +26,7 @@ const RoadmapCard = () => {
         ))}
       </ul>
     </div>
-  );
-};
+  )
+}
 
-export default RoadmapCard;
+export default RoadmapCard

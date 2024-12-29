@@ -1,8 +1,8 @@
-import { useNavigate } from 'react-router-dom';
-import { Button } from '../constants';
+import { useNavigate } from "react-router-dom"
+import { Button } from "../../constants"
 
 const EmptyProductFeedback = () => {
-  const navigate = useNavigate();
+  const navigate = useNavigate()
   return (
     <section className='bg-white h-screen flex flex-col gap-4 justify-center items-center py-6 px-4 rounded-[10px] shadow-sm'>
       <img
@@ -22,12 +22,12 @@ const EmptyProductFeedback = () => {
         label='+ Add Feedback'
         color='purple'
         onClick={() => {
-          navigate('/create-new-feedback');
+          navigate("/create-new-feedback")
         }}
         className='justify-end'
       />
     </section>
-  );
-};
+  )
+}
 
-export default EmptyProductFeedback;
+export default EmptyProductFeedback

@@ -1,18 +1,18 @@
-import { CategoryTag, Upvotes, Comments } from '../constants';
-import { NavItemType } from '../types';
+import { CategoryTag, Upvotes, Comments } from "../../constants"
+import { NavItemType } from "../../types"
 
 interface Feedback {
-  id: number;
-  title: string;
-  description: string;
-  category: string;
-  upvotes: number;
-  comments: { id: number; content: string }[] | null;
+  id: number
+  title: string
+  description: string
+  category: string
+  upvotes: number
+  comments: { id: number; content: string }[] | null
 }
 
 interface RoadmapCardsProps {
-  filteredProductFeedbackRequests: Feedback[];
-  activeNavItem: NavItemType;
+  filteredProductFeedbackRequests: Feedback[]
+  activeNavItem: NavItemType
 }
 
 const RoadmapCardsMobile = ({
@@ -25,29 +25,29 @@ const RoadmapCardsMobile = ({
         <li
           key={feedback.id}
           className={`bg-white rounded-lg flex_col gap-5 p-4 border-t-[6px] sm:border-t-8 ${
-            activeNavItem === 'in-progress'
-              ? 'border-purple'
-              : activeNavItem === 'planned'
-              ? 'border-peach'
-              : 'border-sky'
+            activeNavItem === "in-progress"
+              ? "border-purple"
+              : activeNavItem === "planned"
+              ? "border-peach"
+              : "border-sky"
           }`}
         >
           <div className='flex_row gap-2'>
             <div
               className={`${
-                activeNavItem === 'in-progress'
-                  ? 'bg-purple'
-                  : activeNavItem === 'planned'
-                  ? 'bg-peach'
-                  : 'bg-sky'
+                activeNavItem === "in-progress"
+                  ? "bg-purple"
+                  : activeNavItem === "planned"
+                  ? "bg-peach"
+                  : "bg-sky"
               } w-2 h-2 rounded-full`}
             ></div>
             <p className='text-darkGray text-body-3'>
-              {activeNavItem === 'in-progress'
-                ? 'In Progress'
-                : activeNavItem === 'planned'
-                ? 'Planned'
-                : 'live'}
+              {activeNavItem === "in-progress"
+                ? "In Progress"
+                : activeNavItem === "planned"
+                ? "Planned"
+                : "live"}
             </p>
           </div>
 
@@ -66,7 +66,7 @@ const RoadmapCardsMobile = ({
         </li>
       ))}
     </ul>
-  );
-};
+  )
+}
 
-export default RoadmapCardsMobile;
+export default RoadmapCardsMobile

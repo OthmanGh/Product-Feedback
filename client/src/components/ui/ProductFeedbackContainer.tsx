@@ -1,8 +1,8 @@
-import { FeedbackItem, EmptyProductFeedback } from '../constants';
-import { useFeedbackQuery } from '../context/FeedbackQueryContext';
+import { FeedbackItem, EmptyProductFeedback } from "../../constants"
+import { useFeedbackQuery } from "../../context/FeedbackQueryContext"
 
 const ProductFeedbackContainer = () => {
-  const { sortedFeedbackRequests } = useFeedbackQuery();
+  const { sortedFeedbackRequests } = useFeedbackQuery()
 
   return (
     <ul className='flex_col gap-4 py-10 px-4 sm:p-0 overflow-y-scroll'>
@@ -14,7 +14,7 @@ const ProductFeedbackContainer = () => {
         <EmptyProductFeedback />
       )}
     </ul>
-  );
-};
+  )
+}
 
-export default ProductFeedbackContainer;
+export default ProductFeedbackContainer

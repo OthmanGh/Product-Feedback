@@ -1,16 +1,16 @@
-import { Comments, CategoryTag, Upvotes } from '../constants';
+import { Comments, CategoryTag, Upvotes } from "../../constants"
 
 interface Feedback {
-  id: number;
-  title: string;
-  description: string;
-  category: string;
-  upvotes: number;
-  comments: { id: number; content: string }[] | undefined;
+  id: number
+  title: string
+  description: string
+  category: string
+  upvotes: number
+  comments: { id: number; content: string }[] | undefined
 }
 
 interface FeedbackItemProps {
-  feedback: Feedback;
+  feedback: Feedback
 }
 
 const FeedbackContent = ({ feedback }: { feedback: Feedback }) => (
@@ -21,10 +21,10 @@ const FeedbackContent = ({ feedback }: { feedback: Feedback }) => (
     <p className='text-body-3 text-darkGray'>{feedback.description}</p>
     <CategoryTag category={feedback.category} />
   </div>
-);
+)
 
 const FeedbackItem = ({ feedback }: FeedbackItemProps) => {
-  const commentCount = feedback.comments?.length ?? 0;
+  const commentCount = feedback.comments?.length ?? 0
 
   return (
     <>
@@ -46,7 +46,7 @@ const FeedbackItem = ({ feedback }: FeedbackItemProps) => {
         <Comments commentCount={commentCount} />
       </li>
     </>
-  );
-};
+  )
+}
 
-export default FeedbackItem;
+export default FeedbackItem

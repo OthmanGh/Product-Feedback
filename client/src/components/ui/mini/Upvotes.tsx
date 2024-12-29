@@ -1,18 +1,18 @@
-import { MdKeyboardArrowUp } from '../../constants';
-import { useFeedbackQuery } from '../../context/FeedbackQueryContext';
+import { MdKeyboardArrowUp } from "react-icons/md"
+import { useFeedbackQuery } from "../../../context/FeedbackQueryContext"
 
 interface UpvotesProps {
-  upvotes: string | number;
-  id: number;
-  className?: string;
+  upvotes: string | number
+  id: number
+  className?: string
 }
 
 const Upvotes = ({ upvotes, id, className }: UpvotesProps) => {
-  const { incrementUpvotes } = useFeedbackQuery();
+  const { incrementUpvotes } = useFeedbackQuery()
 
   const handleIncrementUpvotes = (id: number) => {
-    incrementUpvotes(id);
-  };
+    incrementUpvotes(id)
+  }
 
   return (
     <p
@@ -24,6 +24,6 @@ const Upvotes = ({ upvotes, id, className }: UpvotesProps) => {
         {upvotes}
       </span>
     </p>
-  );
-};
-export default Upvotes;
+  )
+}
+export default Upvotes

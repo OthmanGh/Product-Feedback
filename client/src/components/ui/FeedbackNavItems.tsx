@@ -1,17 +1,17 @@
-import { useFeedbackQuery } from '../context/FeedbackQueryContext';
+import { useFeedbackQuery } from "../../context/FeedbackQueryContext"
 
 export const menuNavItems = [
-  { value: 'all', label: 'All' },
-  { value: 'ui', label: 'UI' },
-  { value: 'ux', label: 'UX' },
-  { value: 'enhancement', label: 'Enhancement' },
-  { value: 'bug', label: 'Bug' },
-  { value: 'feature', label: 'Feature' },
-];
+  { value: "all", label: "All" },
+  { value: "ui", label: "UI" },
+  { value: "ux", label: "UX" },
+  { value: "enhancement", label: "Enhancement" },
+  { value: "bug", label: "Bug" },
+  { value: "feature", label: "Feature" },
+]
 
 const FeedbackNavItems = () => {
   const { activeFeedbackNavItems, setActiveFeedbackNavItems } =
-    useFeedbackQuery();
+    useFeedbackQuery()
 
   return (
     <div className='p-5 bg-white rounded-[10px] shadow-sm w-full z-0'>
@@ -23,8 +23,8 @@ const FeedbackNavItems = () => {
             key={i}
             className={`feedback_nav_item ${
               activeFeedbackNavItems === item.value
-                ? 'active_feedback_nav_item'
-                : 'hover:bg-moonlit-sky cursor-pointer'
+                ? "active_feedback_nav_item"
+                : "hover:bg-moonlit-sky cursor-pointer"
             } transition-colors duration-300`}
           >
             {item.label}
@@ -40,8 +40,8 @@ const FeedbackNavItems = () => {
             key={i}
             className={`feedback_nav_item ${
               activeFeedbackNavItems === item.value
-                ? 'active_feedback_nav_item'
-                : 'hover:bg-moonlit-sky cursor-pointer'
+                ? "active_feedback_nav_item"
+                : "hover:bg-moonlit-sky cursor-pointer"
             } transition-colors duration-300`}
           >
             {item.label}
@@ -57,8 +57,8 @@ const FeedbackNavItems = () => {
             key={i}
             className={`feedback_nav_item ${
               activeFeedbackNavItems === item.value
-                ? 'active_feedback_nav_item'
-                : 'hover:bg-moonlit-sky cursor-pointer'
+                ? "active_feedback_nav_item"
+                : "hover:bg-moonlit-sky cursor-pointer"
             } transition-colors duration-300`}
           >
             {item.label}
@@ -66,7 +66,7 @@ const FeedbackNavItems = () => {
         ))}
       </ul>
     </div>
-  );
-};
+  )
+}
 
-export default FeedbackNavItems;
+export default FeedbackNavItems
